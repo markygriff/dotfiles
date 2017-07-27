@@ -163,4 +163,4 @@ cat ~/.cache/wal/sequences
 alias ci='cd /mnt/workspace/qa-ci'
 alias clion="/mnt/workspace/clion-2017.1.3/bin/clion.sh &"
 # alias config='/usr/bin/git --git-dir=/home/markgriffith/.myconfig/ --work-tree=/home/markgriffith'
-alias config='/usr/bin/git --git-dir=/home/markgriffith/.dotfiles/ --work-tree=/home/markgriffith'
+alias dofi='/usr/bin/git --git-dir=/home/markgriffith/.dotfiles/ --work-tree=/home/markgriffith'
