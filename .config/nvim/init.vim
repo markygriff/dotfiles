@@ -29,7 +29,6 @@ Plug 'dylanaraps/pascal_lint.nvim'
 " Writing plugins
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'junegunn/goyo.vim'
-  let g:goyo_height = 90
 augroup Writing
   au!
   autocmd FileType markdown,text setlocal spell
@@ -153,7 +152,7 @@ augroup Filetypes
 	autocmd VimResized * execute "normal \<C-W>="
 
     " Always use goyo
-    " autocmd BufReadPost * Goyo 80%x90%
+    " autocmd BufReadPost * Goyo 80%x100%
 
     " Plugins
     autocmd FileType xdefaults setlocal commentstring=!\ %s
@@ -238,6 +237,10 @@ set noshowmode
 " Always show statusline
 set laststatus=0
 
+" Goddammit vim.  Make fucking backspace/delete on macOS work correctly.
+" http://vim.wikia.com/wiki/Backspace_and_delete_problems
+set backspace=indent,eol,start
+
 colorscheme wal
 
 " }}}
@@ -286,7 +289,7 @@ xnoremap p pgvy
 
 " Cylces through splits using a double press of enter in normal mode
 nnoremap <CR><CR> <C-w><C-w>
-nnoremap \\ <C-w>q
+nnoremap <Bslash><Bslash> <C-w>q
 
 " Unmaps the arrow keys
 "map <Up> <nop>
@@ -322,15 +325,15 @@ nnoremap <S-Right> A
 vnoremap <S-Right> $
 
 inoremap <S-Right> <Esc>$i
-" inoremap <S-Left> <Esc>0i
+inoremap <S-Left> <Esc>0i
 
 " New age copy and pasting because fuck dyp
-vnoremap <C-c> y
-" vnoremap <C-x> d
+" vnoremap <C-c> y
+vnoremap<C-x> d
 noremap <C-v> p
 
 " imap <C-x> <Esc>di
-imap <C-v> <Esc>pi
+" imap <C-v> <Esc>pi
 
 " Undo and Redo in insert mode
 imap <C-z> <Esc>ui
@@ -365,9 +368,6 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 nmap <F1> :set number!<CR>
-
-" Toggle goyo
-nmap <Leader>g :Goyo<CR>
 
 " }}}
 
@@ -444,6 +444,13 @@ set nottimeout
 " More natural split opening
 set splitbelow
 set splitright
+
+" Source the .vimrc file after saving it.  This way you don't have to reload Vim to see the changes.
+augroup myvimrchooks
+  autocmd!
+
+  autocmd bufwritepost .vimrc source ~/.vimrc
+augroup END
 
 " }}}
 
@@ -579,6 +586,25 @@ function! Chmox()
 endfunction
 
 command! Chmox call Chmox()
+
+" }}}
+
+" bash {{{
+
+augroup ft_sh
+  autocmd!
+
+  " Lets me fold functions in bash
+  autocmd FileType sh setlocal foldmethod=marker
+  autocmd Filetype sh setlocal foldmarker={,}
+augroup END
+
+" }}}
+
+" Goyo {{{
+
+" Maps Goyo to <leader>g.
+map <leader>g :Goyo<CR>
 
 " }}}
 
