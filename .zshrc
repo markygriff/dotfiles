@@ -95,25 +95,21 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias zshupdate=". ~/.zshrc"
-alias zshconfig="atom ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls="ls -G"
 alias dofi='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias neofetch="neofetch"
 
 # my stupid special scritps
 export PATH=$PATH:${HOME}/.scripts/neofetch
 nohup ${HOME}/.scripts/committer/comm &> /dev/null
 
-alias neofetch="neofetch"
-
 # pywal stuff
 export WAL_DIR=/Users/Marky/.scripts/pywalMac/pywal
-# hack a wal reload
-# wal -i $(cat ~/.cache/wal/wal) -o ~/.dotfiles/set_color
 alias wal="wal -o ~/.scripts/set_color"
+# reload wal
 wal -i $(cat ~/.cache/wal/wal) &>/dev/null
 # source colors used by wal
 source "${HOME}/.cache/wal/colors.sh"
-# (wal -r &)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
