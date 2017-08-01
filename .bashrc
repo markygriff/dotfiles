@@ -140,7 +140,7 @@ export WAND_IMAGE=$PSC_DIR/$(ls $PSC_DIR | grep '^[0-3][0-9][0-9]' | sort -n | t
 
 alias inc='firefox -private-window'
 alias lck='gnome-screensaver-command -l'
-alias yas='cd ~/workspace/yas'
+alias yas='cd /mnt/workspace/yas'
 alias ws='cd /mnt/workspace'
 alias jenk='cd /mnt/lbs5/auto/PlatformSecurity'
 # alias tftpez='ip=$(/sbin/ip -o -4 addr list lo | awk '{print $4}' | cut -d/ -f1) && tftp $ip'
@@ -155,7 +155,7 @@ source ~/bin/functions.sh
 
 # pywal shctuff
 # alias wal="python3.6 /mnt/workspace/pywal/pywal/__main__.py"
-alias wal="python3.6 ~/.dotfiles/wal/pywal/pywal/__main__.py"
+alias wal="python3.6 ~/.scripts/wal/pywal/pywal/__main__.py"
 # (python3.6 /mnt/workspace/pywal/pywal/__main__.py -r &)
 cat ~/.cache/wal/sequences
 
