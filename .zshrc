@@ -111,7 +111,7 @@ export WAL_DIR=/Users/Marky/.scripts/pywalMac/pywal
 # hack a wal reload
 # wal -i $(cat ~/.cache/wal/wal) -o ~/.dotfiles/set_color
 alias wal="wal -o ~/.scripts/set_color"
-wal -i $(cat ~/.cache/wal/wal)
+wal -i $(cat ~/.cache/wal/wal) &>/dev/null
 # source colors used by wal
 source "${HOME}/.cache/wal/colors.sh"
 # (wal -r &)
