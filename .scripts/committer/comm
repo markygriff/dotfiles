@@ -1,0 +1,25 @@
+#!/bin/bash
+
+MOY=$(date +%b)
+DOM=$(date +%d)
+DOW=$(date +%u)
+
+[ -d ${HOME}/.markstuff/bin/committer/dates/$MOY ] || mkdir -p ${HOME}/.markstuff/bin/committer/dates/$DOM
+[ ! -f ${HOME}/.markstuff/bin/committer/dates/$MOY/$DOM ] || exit 1
+touch ${HOME}/.markstuff/bin/committer/dates/$MOY/$DOM
+
+n=$(python -c "import random; print random.randrange(1,5)")
+
+while [ ${cnt:-0} -le $n ]; do
+  for dir in ~/Github/Website ~/Github/Mr.Engine ~/Github/Arthur; do
+    next=$(python -c "import random; print random.randrange(1,3)")
+    [ $((next%3)) -eq 0 ] && break
+    echo; echo $dir; cd $dir;
+    if [ ! -f afile ]; then touch afile; git add afile; fi
+    [ -f afile ] || break
+    echo $DOW >> afile; git add -u; git commit -m "UPDATE: General"; git push
+  done
+  ((cnt++))
+done
+cd ~
+exit 0

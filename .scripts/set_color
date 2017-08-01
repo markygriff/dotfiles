@@ -1,0 +1,120 @@
+#!/bin/bash
+
+source ~/.cache/wal/colors.sh
+
+# cache_dir="~/.cache/wal"
+# c=($(< "${cache_dir}/colors"))
+# c=("${c[@]//\#}")
+
+hextoapple() {
+  col=${1//\#}
+  r=$((16#${col:0:2} * 257))
+  g=$((16#${col:2:2} * 257))
+  b=$((16#${col:4:2} * 257))
+  echo {$r, $g, $b}
+  #multiply by 257 because applescripts are daf
+}
+
+do_main() {
+  this=${background//\#}
+  # echo $((16#${this:0:2} * 257))
+
+  local background=$(echo $(hextoapple $background))
+  foreground=$(hextoapple $foreground)
+  cursor=$(hextoapple $cursor)
+  # for n in $(seq 0 15); do
+  #   color${n}=
+  # done
+  color0=$(echo $(hextoapple $color0))
+  color1=$(echo $(hextoapple $color1))
+  color2=$(echo $(hextoapple $color2))
+  color3=$(echo $(hextoapple $color3))
+  color4=$(echo $(hextoapple $color4))
+  color5=$(echo $(hextoapple $color5))
+  color6=$(echo $(hextoapple $color6))
+  color7=$(echo $(hextoapple $color7))
+  color8=$(echo $(hextoapple $color8))
+  color9=$(echo $(hextoapple $color9))
+  color10=$(echo $(hextoapple $color10))
+  color11=$(echo $(hextoapple $color11))
+  color12=$(echo $(hextoapple $color12))
+  color13=$(echo $(hextoapple $color13))
+  color14=$(echo $(hextoapple $color14))
+  color15=$(echo $(hextoapple $color15))
+
+  # bold color
+  # cursor color
+  # cursor text color
+  # foreground color
+  # selected text color
+  # selection color
+  # ANSI black color
+  # ANSI red color
+  # ANSI green color
+  # ANSI yellow color
+  # ANSI blue color
+  # ANSI magenta color
+  # ANSI cyan color
+  # ANSI white color
+  # ANSI bright black color
+  # ANSI bright red color
+  # ANSI bright green color
+  # ANSI bright yellow color
+  # ANSI bright blue color
+  # ANSI bright magenta color
+  # ANSI bright cyan color
+  # ANSI bright white color
+
+  osascript -e "tell application \"iterm\"
+  	set winlist to every window
+  	repeat with win in winlist
+  		set ok to true
+  		try
+  			set tablist to every tab of win
+  		on error errmsg
+  			--display dialog name of win as string
+  			set ok to false
+  		end try
+  		if ok then
+  			repeat with t from 1 to count of tablist
+          tell current session of tab t of win
+            set background color to $background
+            set foreground color to $foreground
+            set cursor color to $cursor
+            # set cursor text color to $_darker_selection_color
+            set selection color to $color15
+            set ANSI black color to $color0
+            set ANSI red color to $color1
+            set ANSI green color to $color2
+            set ANSI yellow color to $color3
+            set ANSI blue color to $color4
+            set ANSI magenta color to $color5
+            set ANSI cyan color to $color6
+            set ANSI white color to $color7
+            set ANSI bright black color to $color8
+            set ANSI bright red color to $color9
+            set ANSI bright green color to $color10
+            set ANSI bright yellow color to $color11
+            set ANSI bright blue color to $color13
+            set ANSI bright magenta color to $color14
+            set ANSI bright cyan color to $color15
+          end tell
+        end repeat
+      end if
+    end repeat
+  end tell
+  "
+
+  osascript -e "
+    tell application \"Finder\"
+        set winlist to every window
+        repeat with win in winlist
+            tell the icon view options of win
+                set the background color to $background
+            end tell
+        end repeat
+    end tell"
+}
+
+do_main "$@"
+exit "$?"
