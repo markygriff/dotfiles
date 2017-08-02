@@ -5,8 +5,8 @@ DOM=$(date +%d)
 DOW=$(date +%u)
 
 [ -d ${HOME}/.markstuff/bin/committer/dates/$MOY ] || mkdir -p ${HOME}/.markstuff/bin/committer/dates/$DOM
-[ ! -f ${HOME}/.markstuff/bin/committer/dates/$MOY/$DOM ] || exit 1
-touch ${HOME}/.markstuff/bin/committer/dates/$MOY/$DOM
+[ ! -f ${HOME}/.script/committer/dates/$MOY/$DOM ] || exit 1
+touch ${HOME}/.scripts/committer/dates/$MOY/$DOM
 
 n=$(python -c "import random; print random.randrange(1,5)")
 
