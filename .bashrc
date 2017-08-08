@@ -116,39 +116,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-
-export YAS_LINUX_REPO=/home/markgriffith/workspace/yas-linux
-export ARTEFACTS_DIR=/mnt/lbs5/secureplatform_artefacts
-export CSS_DIST=/home/markgriffith/workspace/css_dist
-export XC_DIST=/home/markgriffith/workspace/css_dist/XC_DIST
-#export MIPSEL_TOOLCHAIN_DIR=/home/hammadahmed/SSD/${1}/secureplatform_artefacts/tools/stbgcc-4.5.3-0.6
-#export I686_TOOLCHAIN_DIR=/opt/toolchain/i686-unknown-linux-gnu
-export RANDOMSEED=abad1dea
-export PATH=$PATH:/opt/toolchain/gcc/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/:/opt/toolchain/gcc/gcc-4.8-arm-unknown-linux-musleabi/bin/
-if [ ! -d "/mnt/lbs5/secureplatform_artefacts" ]; then
-   sudo /etc/rc.local
-fi
-
-export sip=172.20.232.251
-
-export PSC_DIR=/mnt/lbs5/working/QA_image_archive/PS-Client
-
-export RPI_IMAGE=$PSC_DIR/$(ls $PSC_DIR | grep '^[0-3][0-9][0-9]' | sort -n | tail -n1)/CI_images/irdeto.rpi/signed-image
-
-export WAND_IMAGE=$PSC_DIR/$(ls $PSC_DIR | grep '^[0-3][0-9][0-9]' | sort -n | tail -n1)/CI_images/irdeto.wandboard/signed-image
-
-alias inc='firefox -private-window'
 alias lck='gnome-screensaver-command -l'
-alias yas='cd /mnt/workspace/yas'
 alias ws='cd /mnt/workspace'
-alias jenk='cd /mnt/lbs5/auto/PlatformSecurity'
-# alias tftpez='ip=$(/sbin/ip -o -4 addr list lo | awk '{print $4}' | cut -d/ -f1) && tftp $ip'
-alias getip="export ip=$(/sbin/ip -o -4 addr list eno1 | awk '{print $4}' | cut -d/ -f1); echo '$ip'"
-alias tftpez="tftp $(/sbin/ip -o -4 addr list eno1 | awk '{print $4}' | cut -d/ -f1)"
-alias umountall="sudo rmdir /media/markgriffith/*; sudo umount /media/markgriffith/*;"
-alias updboots="cd /tftpboot; mkimage -A arm -T script -O linux -d ws/boot_ram.txt boot/boot_ram.scr; mkimage -A arm -T script -O linux -d ws/boot.txt boot/boot.scr; mkimage -A arm -T script -O linux -d ws/boot_orig.txt boot/boot_orig.scr;"
-alias cpboots='if [ -d "/media/markgriffith/Boot\ wandbo" ]; then cp boot/*.scr /media/markgriffith/Boot\ wandbo/ else echo no mounted device; fi;'
 alias bashrc='. ~/.bashrc'
 
 source ~/bin/functions.sh
@@ -163,4 +132,4 @@ cat ~/.cache/wal/sequences
 alias ci='cd /mnt/workspace/qa-ci'
 alias clion="/mnt/workspace/clion-2017.1.3/bin/clion.sh &"
 # alias config='/usr/bin/git --git-dir=/home/markgriffith/.myconfig/ --work-tree=/home/markgriffith'
-alias dofi='/usr/bin/git --git-dir=/home/markgriffith/.dotfiles/ --work-tree=/home/markgriffith'
+alias dofi='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
