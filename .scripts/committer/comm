@@ -14,14 +14,14 @@ DOW=$(date +%u)
 touch ${HOME}/.markstuff/committer/dates/$MOY/$DOM
 
 
-n=$(python -c "import random; print random.randrange(0,3)")
-
+n=$(python -c "import random; print random.randrange(0,4)")
+# echo $n
 while [ ${cnt:-0} -le $n ]; do
   for dir in ~/Github/Website ~/Github/Mr.Engine ~/Github/Arthur; do
-    next=$(python -c "import random; print random.randrange(1,2)")
-    echo $next
+    next=$(python -c "import random; print random.randrange(1,3)")
+    # echo next: $next
     [ $((next%2)) -eq 0 ] && continue
-    # echo; echo $dir;
+    # echo $dir;
     cd $dir;
     if [ ! -f afile ]; then touch afile; git add afile; fi
     [ -f afile ] || break
