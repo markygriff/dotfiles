@@ -262,8 +262,8 @@ set smartcase
 " Mapping {{{
 
 " Really simple Multi cursors
-nnoremap <C-j> *Ncgn
-vnoremap <C-j> <Esc>*Ncgn
+" nnoremap <C-j> *Ncgn
+" vnoremap <C-j> <Esc>*Ncgn
 
 " Unmap space in normal and visual modes
 nnoremap <SPACE> <nop>
@@ -289,6 +289,7 @@ xnoremap p pgvy
 
 " Cylces through splits using a double press of enter in normal mode
 nnoremap <CR><CR> <C-w><C-w>
+" Closing split panes with \\
 nnoremap <Bslash><Bslash> <C-w>q
 
 " Unmaps the arrow keys
@@ -354,6 +355,8 @@ nnoremap J 0
 vnoremap J 0
 vnoremap L $
 
+" Fast backspacing by word
+" imap <C-BS> <C-W>
 
 " unmap a in normal mode
 nmap a <nop>
