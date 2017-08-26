@@ -8,23 +8,25 @@ DOW=$(date +%u)
 [ -f ${HOME}/.script/committer/dates/$MOY/$DOM ] && exit 1
 touch ${HOME}/.scripts/committer/dates/$MOY/$DOM
 
-
+#check for custom cache dir
 [ -d ${HOME}/.markstuff/committer/dates/$MOY ] || mkdir -p ${HOME}/.markstuff/committer/dates/$MOY
+#once per day
 [ -f ${HOME}/.markstuff/committer/dates/$MOY/$DOM ] && exit 1
 touch ${HOME}/.markstuff/committer/dates/$MOY/$DOM
 
-
-n=$(python -c "import random; print random.randrange(0,4)")
+# 0-4 cycles
+n=$(python -c "import random; print random.randrange(0,5)")
 # echo $n
 while [ ${cnt:-0} -le $n ]; do
   for dir in ~/Github/Website ~/Github/Mr.Engine ~/Github/Arthur; do
+    # 50% chance of skipping
     next=$(python -c "import random; print random.randrange(1,3)")
-    # echo next: $next
     [ $((next%2)) -eq 0 ] && continue
     # echo $dir;
     cd $dir;
     if [ ! -f afile ]; then touch afile; git add afile; fi
     [ -f afile ] || break
+    # commit
     echo $DOW >> afile; git add -u > /dev/null; git commit -m "UPDATE: General" > /dev/null; git push > /dev/null
   done
   ((cnt++))
