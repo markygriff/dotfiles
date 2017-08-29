@@ -120,16 +120,13 @@ alias lck='gnome-screensaver-command -l'
 alias ws='cd /mnt/workspace'
 alias bashrc='. ~/.bashrc'
 
-source ~/bin/functions.sh
+alias pip3.6="/usr/bin/python3.6 -m pip $1"
+alias btbt='/usr/bin/python3.5 ~/.scripts/fix-bt/a2dp.py 00:18:09:95:B2:43'
 
 # pywal shctuff
-# alias wal="python3.6 /mnt/workspace/pywal/pywal/__main__.py"
-alias wal="python3.6 ~/.scripts/wal/pywal/pywal/__main__.py"
-# (python3.6 /mnt/workspace/pywal/pywal/__main__.py -r &)
-cat ~/.cache/wal/sequences
+# alias wal="python3.6 ~/.scripts/pywal/pywal/__main__.py"
+(wal -r &)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-alias ci='cd /mnt/workspace/qa-ci'
-alias clion="/mnt/workspace/clion-2017.1.3/bin/clion.sh &"
 # alias config='/usr/bin/git --git-dir=/home/markgriffith/.myconfig/ --work-tree=/home/markgriffith'
 alias dofi='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
