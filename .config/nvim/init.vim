@@ -112,6 +112,9 @@ Plug 'machakann/vim-highlightedyank'
 
 Plug 'vim-airline/vim-airline'
 
+" latex editing
+Plug 'lervag/vimtex'
+
 call plug#end()
 
 " }}}
@@ -320,6 +323,9 @@ noremap <S-Left> 0
 vnoremap <S-Left> 0
 nnoremap <S-Right> A
 vnoremap <S-Right> $
+
+nnoremap <S-Down> }
+nnoremap <S-Up> {
 
 inoremap <S-Right> <Esc>$i
 " inoremap <S-Left> <Esc>0i
