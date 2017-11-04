@@ -314,12 +314,6 @@ nnoremap k gk
 vnoremap , gj
 vnoremap k gk
 
-" Shift selecting
-"imap <S-Up> <Esc>v<Up>i
-"imap <S-Down> <Esc>v<Down>i
-"imap <S-Left> <Esc>v<Left>i
-"imap <S-Right> <Right><Esc>v<Right>i
-
 noremap <S-Left> 0
 vnoremap <S-Left> 0
 nnoremap <S-Right> A
@@ -328,17 +322,7 @@ vnoremap <S-Right> $
 inoremap <S-Right> <Esc>$i
 inoremap <S-Left> <Esc>0i
 
-" New age copy and pasting because fuck dyp
-" vnoremap <C-c> y
-vnoremap<C-x> d
 noremap <C-v> p
-
-" imap <C-x> <Esc>di
-" imap <C-v> <Esc>pi
-
-" Undo and Redo in insert mode
-imap <C-z> <Esc>ui
-imap <C-r> <Esc><C-r>i
 
 " include the default behaviour by doing reverse mappings so you can move linewise with gj and gk:
 nnoremap gj ,
