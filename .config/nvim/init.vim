@@ -111,6 +111,9 @@ Plug 'machakann/vim-highlightedyank'
 
 Plug 'vim-airline/vim-airline'
 
+" gruvbox colorscheme. Seems to work the best for me.
+Plug 'morhetz/gruvbox'
+
 call plug#end()
 
 " }}}
@@ -242,6 +245,14 @@ set laststatus=0
 set backspace=indent,eol,start
 
 colorscheme wal
+
+" colorscheme gruvbox
+" set bg=dark
+" let g:gruvbox_contrast_dark = 'soft'
+" set bg=light
+
+" enable mouse in all modes
+set mouse=a
 
 " }}}
 
