@@ -42,7 +42,7 @@ Plug 'junegunn/fzf.vim'
 " Async Linting
 Plug 'w0rp/ale'
     let g:ale_lint_on_save = 1
-    let g:ale_lint_on_text_changed = 0
+    let g:ale_lint_on_text_changed = 1
     let g:ale_lint_on_enter = 0
     let g:ale_linters_sh_shellcheck_exclusions = 'SC1090,SC2155'
     nmap <silent> <C-n> <Plug>(ale_next_wrap)
