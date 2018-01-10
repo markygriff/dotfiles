@@ -42,8 +42,11 @@ Plug 'junegunn/fzf.vim'
 " Async Linting
 Plug 'w0rp/ale'
     let g:ale_lint_on_save = 1
-    let g:ale_lint_on_text_changed = 1
+    let g:ale_lint_on_text_changed = 0
     let g:ale_lint_on_enter = 0
+    let g:ale_linters = {
+          \ 'cpp': ['cpplint', 'clang']
+          \}
     let g:ale_linters_sh_shellcheck_exclusions = 'SC1090,SC2155'
     nmap <silent> <C-n> <Plug>(ale_next_wrap)
     nmap <silent> <C-N> <Plug>(ale_previous_wrap)
@@ -111,8 +114,11 @@ Plug 'machakann/vim-highlightedyank'
 
 Plug 'vim-airline/vim-airline'
 
-" gruvbox colorscheme. Seems to work the best for me.
+" gruvbox colorscheme. spooky
 Plug 'morhetz/gruvbox'
+
+" nord colorscheme. arctive north-bluish
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
@@ -206,7 +212,14 @@ set breakindent
 " Look and Feel {{{
 
 " Enable true color for neovim
-let $NVIM_TUI_ENABLE_TRUE_COLOR = 0
+" let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+set t_Co=256
+" if (has(“termguicolors”))
+" set termguicolors
+" endif
+let &t_8f = "<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
 
 " Enables cursor similar to gui programs
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
@@ -244,12 +257,17 @@ set laststatus=0
 " http://vim.wikia.com/wiki/Backspace_and_delete_problems
 set backspace=indent,eol,start
 
-colorscheme wal
+" colorscheme wal
 
 " colorscheme gruvbox
-" set bg=dark
 " let g:gruvbox_contrast_dark = 'soft'
-" set bg=light
+" let g:airline_theme = 'gruvbox'
+
+colorscheme  nord
+let g:nord_comment_brightness = 20
+let g:airline_theme = 'nord'
+
+set bg=dark
 
 " enable mouse in all modes
 set mouse=a
