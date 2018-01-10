@@ -107,9 +107,11 @@ export PATH=$PATH:${HOME}/.scripts/neofetch
 # pywal stuff
 export WAL_DIR=/Users/Marky/.scripts/pywalMac/pywal
 alias wal="wal -o ~/.scripts/set_color"
+
 # reload wal
-wal -i $(cat ~/.cache/wal/wal) &>/dev/null
-wal -o ~/.scripts/set_color
+# wal -i $(cat ~/.cache/wal/wal) &>/dev/null
+# wal -o ~/.scripts/set_color
+
 # source colors used by wal
 source "${HOME}/.cache/wal/colors.sh"
 
