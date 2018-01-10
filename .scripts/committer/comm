@@ -11,11 +11,11 @@ touch ${HOME}/.scripts/committer/dates/$MOY/$DOM
 #check for custom cache dir
 [ -d ${HOME}/.markstuff/committer/dates/$MOY ] || mkdir -p ${HOME}/.markstuff/committer/dates/$MOY
 #once per day
-[ -f ${HOME}/.markstuff/committer/dates/$MOY/$DOM ] && exit 1
-touch ${HOME}/.markstuff/committer/dates/$MOY/$DOM
+# [ -f ${HOME}/.markstuff/committer/dates/$MOY/$DOM ] && exit 1
+# touch ${HOME}/.markstuff/committer/dates/$MOY/$DOM
 
 # 0-4 cycles
-n=$(python -c "import random; print random.randrange(0,5)")
+n=$(python -c "import random; print random.randrange(1,5)")
 # echo $n
 while [ ${cnt:-0} -le $n ]; do
   for dir in ~/Github/Website ~/Github/Mr.Engine ~/Github/Arthur; do
