@@ -343,7 +343,7 @@ nnoremap k gk
 vnoremap , gj
 vnoremap k gk
 
-noremap <S-Left> 0
+noremap <S-Left> I
 vnoremap <S-Left> 0
 nnoremap <S-Right> A
 vnoremap <S-Right> $
@@ -361,11 +361,11 @@ nnoremap gk k
 nmap <Leader>b zo]z
 
 " Moves a single space after end of line and puts me in insert mode
-nnoremap L A
 
 " Easily move to start/end of line
-nnoremap J 0
-vnoremap J 0
+nnoremap H I
+vnoremap H 0
+nnoremap L A
 vnoremap L $
 
 " Fast backspacing by word
