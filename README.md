@@ -1,14 +1,14 @@
-# my-dotfiles
+# dotfiles
 
 ## Setup
 ```bash
-git init --bare $HOME/.my-dotfiles
-dofi remote add origin git@github.com:markygriff/dotfiles.git
+git init --bare $HOME/.dotfiles
 ```
 
 ## Configuration
 ```bash
 alias dofi='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+dofi remote add origin git@github.com/markygriff/dotfiles.git
 dofi config status.showUntrackedFiles no
 ```
 
