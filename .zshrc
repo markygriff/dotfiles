@@ -100,25 +100,18 @@ alias ls="ls -G"
 alias dofi='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias neofetch="neofetch"
 
-# my scritps
-export PATH=$PATH:${HOME}/.scripts/neofetch
+# my stupid special scritps
+# export PATH=$PATH:${HOME}/.scripts/neofetch
 # nohup ${HOME}/.scripts/committer/comm &> /dev/null
 
 # pywal stuff
 export WAL_DIR=/Users/Marky/.scripts/pywalMac/pywal
 alias wal="wal -o ~/.scripts/set_color"
-
 # reload wal
 # wal -i $(cat ~/.cache/wal/wal) &>/dev/null
 # wal -o ~/.scripts/set_color
-
 # source colors used by wal
 source "${HOME}/.cache/wal/colors.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# custom aliases
-alias lab='ssh mgriffit@ohaton.cs.ualberta.ca'
-
-# custom sources
-source $HOME/.functions/rover.sh
+alias lab='ssh -p9016 user_16@162.246.157.207'
