@@ -40,17 +40,16 @@ Install:andUse("MiroWindowsManager",
                }
 )
 
-Install:andUse("WindowScreenLeftAndRight",
-               {
-                 hotkeys = 'default'
-               }
-)
-
-Install:andUse("HeadphoneAutoPause",
-               {
-                 start = true
-               }
-)
+-- Install:andUse("WindowScreenLeftAndRight",
+--                {
+--                  -- hotkeys = 'default'
+--                  hotkeys =
+--                  {
+--                    screen_left = {hyper, "O"},
+--                    screen_right = {hyper, "P"},
+--                  }
+--                }
+-- )
 
 local localstuff=loadfile(hs.configdir .. "/init-local.lua")
 if localstuff then
