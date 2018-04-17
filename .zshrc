@@ -10,43 +10,8 @@ export ZSH=/Users/Marky/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="mh"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -56,22 +21,7 @@ plugins=(git brew npm)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+## User configuration
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -79,39 +29,29 @@ source $ZSH/oh-my-zsh.sh
 # syntax highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-##
-# Prompt
-##
-# setopt PROMPT_SUBST     # allow funky stuff in prompt
-# color="blue"
-# if [ "$USER" = "root" ]; then
-#     color="red"         # root is red, user is blue
-# fi;
-# prompt="%{$fg[$color]%}%n%{$reset_color%}@%U%{$fg[yellow]%}%m%{$reset_color%}%u %T %B%~%b "
-# RPROMPT='${vim_mode} ${vcs_info_msg_0_}'
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
+## Aliases
 alias zshupdate=". ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls="ls -G"
 alias dofi='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 alias neofetch="neofetch"
+alias lab='/usr/bin/expect ~/.scripts/lab_login'
+alias spotify='/Applications/Spotify.app/Contents/MacOS/Spotify'
 
-# my stupid special scritps
-# export PATH=$PATH:${HOME}/.scripts/neofetch
+## Auto Committer
 # nohup ${HOME}/.scripts/committer/comm &> /dev/null
+export PATH=$PATH:${HOME}/.scripts/neofetch
 
 # pywal stuff
-export WAL_DIR=/Users/Marky/.scripts/pywalMac/pywal
-alias wal="wal -o ~/.scripts/set_color"
+# export WAL_DIR=/Users/Marky/.scripts/pywalMac/pywal
+# alias wal="wal -o ~/.scripts/set_color"
 # reload wal
 # wal -i $(cat ~/.cache/wal/wal) &>/dev/null
 # wal -o ~/.scripts/set_color
 # source colors used by wal
-source "${HOME}/.cache/wal/colors.sh"
+# source "${HOME}/.cache/wal/colors.sh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-alias lab='ssh -p9016 user_16@162.246.157.207'
+
+## Sources
+source ~/.scripts/rover.sh
