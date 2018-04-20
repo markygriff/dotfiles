@@ -51,10 +51,16 @@ Install:andUse("MiroWindowsManager",
 --                }
 -- )
 
+-- Load local spoons
 local localstuff=loadfile(hs.configdir .. "/init-local.lua")
 if localstuff then
   localstuff()
 end
+
+-- Lock screen
+hs.hotkey.bind(hyper, "0", function()
+  hs.caffeinate.lockScreen()
+end)
 
 Install:andUse("FadeLogo",
                {
