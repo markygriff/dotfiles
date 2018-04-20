@@ -4,7 +4,8 @@
 /* Hide tab borders */
 :root {
   --text-color: #ccc;
-  --background-color: #1A2126;
+  /* --background-color: #383B3D; */
+  --background-color: #282828;
   --border: #a1a1a1;
 }
 
