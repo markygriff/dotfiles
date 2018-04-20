@@ -2,6 +2,7 @@
 
 for dir in */; do
   cd $dir
+  echo 'in dir: '$dir''
   [ -d css ] || exit 1
   cd css
   for file in *.css; do
@@ -18,15 +19,16 @@ for dir in */; do
       fi
       if  [ ${#color} -eq 8 ] && [ ${color:0:1} = '#' ] && [ ${color:7:8} = ';' ]; then
         rand_color=$(head -$((${RANDOM} % `wc -l < $gruv_colors` + 1)) $gruv_colors | tail -1) || exit 1
-        # echo 'COLOR: '$color''
-        # echo 'selected random color: '$rand_color''
-        sed -i.bak 's/'$color'/'$rand_color';/g' $file &> /dev/null || exit 1
+        echo 'COLOR: '$color''
+        echo 'selected random color: '$rand_color''
+        sed -i.bak '1,/'$color'/ s/'$color'/'$rand_color';/' $file &> /dev/null || exit 1
         continue
       fi
       if  [ ${#color} -eq 5 ] && [ ${color:0:1} = '#' ] && [ ${color:4:5} = ';' ]; then
         rand_color=$(head -$((${RANDOM} % `wc -l < $gruv_colors` + 1)) $gruv_colors | tail -1) || exit 1
-        # echo 'COLOR: '$color''
-        sed -i.bak 's/'$color'/'$rand_color';/g' $file &> /dev/null || exit 1
+        echo 'COLOR: '$color''
+        echo 'selected random color: '$rand_color''
+        sed -i.bak '1,/'$color'/ s/'$color'/'$rand_color';/' $file &> /dev/null || exit 1
         continue
       fi
     done
