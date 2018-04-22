@@ -3,10 +3,11 @@
 
 /* Hide tab borders */
 :root {
-  --text-color: #ccc;
+  --text-color: #EEEEEE;
   /* --background-color: #383B3D; */
   --background-color: #282828;
   --border: #a1a1a1;
+  --background-color-active: rgb(50,50,52);
 }
 
 @namespace html url(http://www.w3.org/1999/xhtml);
@@ -44,8 +45,8 @@
   color: var(--text-color) !important;
 }
 
-#PopupAutoCompleteRichResult > richlistbox > richlistitem[selected] {
-  background-color: var(--background-color) !important;
+#PopupAutoCompleteRichResult > richlistbox > richlistitem[selected="true"] {
+  background-color: var(--background-color-active) !important;
 }
 
 
@@ -71,15 +72,21 @@
 
 
 /* Change color of selected tab text */
-#TabsToolbar .tabbrowser-tab[selected] {
+#TabsToolbar .tabbrowser-tab[selected="true"] {
   color: var(--text-color) !important;
 }
-
 
 /* Change Color of all tabs */
 .tab-background {
   background-attachment: none !important;
   background-color: var(--background-color) !important;
+  background-image: none !important;
+}
+
+/* Change color of active tab */
+.tab-background[selected="true"] {
+  background-attachment: none !important;
+  background-color: var(--background-color-active) !important;
   background-image: none !important;
 }
 
@@ -257,16 +264,17 @@ findbar .findbar-container {
 
 findbar .findbar-container .findbar-textbox {
   padding: 6px 8px !important;
-  background: var(--background-color) !important;
+  background: var(--background-color-active) !important;
   border: none;
   box-shadow: none !important;
+  /* color: #ffffff !important; */
   color: var(--text-color) !important;
 }
 
 findbar .findbar-container .findbar-find-previous,
 findbar .findbar-container .findbar-find-next {
-  background: var(--background-color) !important;
-  background-color: var(--background-color) !important;
+  background: var(--background-color-active) !important;
+  background-color: var(--background-color-active) !important;
   border: none;
 }
 
@@ -324,7 +332,6 @@ findbar .findbar-closebutton {
   background: var(--background-color) !important;
 }
 
-
 /*  Right click menu */
 menupopup,
 popup,
@@ -353,7 +360,7 @@ menupopup menu:hover,
 menuitem:hover {
   -moz-appearance: none !important;
   color:var(--text-color) !important;
-  background-color: transparent !important;
+  background-color: var(--background-color-active) !important;
 }
 
 
