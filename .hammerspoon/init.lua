@@ -58,9 +58,9 @@ if localstuff then
 end
 
 -- Lock screen
-hs.hotkey.bind(hyper, "0", function()
-  hs.caffeinate.lockScreen()
-end)
+-- hs.hotkey.bind(hyper, "0", function()
+--   hs.caffeinate.lockScreen()
+-- end)
 
 Install:andUse("FadeLogo",
                {
